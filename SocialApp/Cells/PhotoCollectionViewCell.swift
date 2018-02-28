@@ -1,5 +1,5 @@
 //
-//  ProfileCollectionViewCell.swift
+//  PhotoCollectionViewCell.swift
 //  SocialApp
 //
 //  Created by Siroson Mathuranga Sivarajah on 28/02/18.
@@ -8,9 +8,6 @@
 
 import UIKit
 
-class ProfileCollectionViewCell: UICollectionViewCell {
+class PhotoCollectionViewCell: UICollectionViewCell {
     
-    // MARK:- Outlets
-    
-    @IBOutlet var profileImage: UIImageView!
 }
