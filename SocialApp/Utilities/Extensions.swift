@@ -24,4 +24,9 @@ extension UIView {
         roundedLayer.path = bezierPath.cgPath
         self.layer.mask = roundedLayer
     }
+    
+    func addBorder(color: UIColor) {
+        self.layer.borderColor = color.cgColor
+        self.layer.borderWidth = 2.0
+    }
 }

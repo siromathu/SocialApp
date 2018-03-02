@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+
+struct Constants {
+    static let animationDuration = 0.5
+}

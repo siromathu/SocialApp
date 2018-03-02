@@ -35,6 +35,10 @@ class ToolBar: UIView {
     
     required init(coder: NSCoder) {
         super.init(coder: coder)!
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
         
         // initialize view from staoryboard
         setup()
@@ -44,6 +48,7 @@ class ToolBar: UIView {
 // MARK:- Helper Methods
 
 extension ToolBar {
+    /// Initial setup method
     func setup() {
         // Setup base view behaviours
         topCornered()
@@ -64,12 +69,20 @@ extension ToolBar {
         }
     }
     
+    /// Change tint color of the selected image, for now.
+    ///
+    /// - Parameters:
+    ///     - sender: UIButton object reference.
+    ///
     @objc func action(sender: UIButton) {
         // Loop through stack buttons and change tintcolor
         for (index, button) in stackButtons.enumerated() {
-            let image = images[index].withRenderingMode(.alwaysTemplate)
-            button.setImage(image, for: .normal)
-            button.tintColor = button.tag == sender.tag ? UIColor.red : UIColor.black
+            // Skip 3rd button, since its a different toned button
+            if index != 2 {
+                let image = images[index].withRenderingMode(.alwaysTemplate)
+                button.setImage(image, for: .normal)
+                button.tintColor = button.tag == sender.tag ? UIColor.red : UIColor.black
+            }
         }
     }
 }
