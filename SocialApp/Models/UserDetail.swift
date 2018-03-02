@@ -12,6 +12,7 @@ struct UserDetail {
     
     // MARK:- Properties
     
+    let id: Int!
     let name: String!
     let posts: String!
     let followers: String!
@@ -20,4 +21,5 @@ struct UserDetail {
     let about: String!
     let profilePhoto: String!
     let photos: [String]!
+    var isFollowing = false
 }
