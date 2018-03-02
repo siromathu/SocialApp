@@ -13,4 +13,6 @@ class ProfileCollectionViewCell: UICollectionViewCell {
     // MARK:- Outlets
     
     @IBOutlet var profileImage: UIImageView!
+    
+    @IBOutlet var profileImageBottomConstraint: NSLayoutConstraint!
 }
