@@ -14,25 +14,11 @@ class MainViewController: UIViewController {
     
     @IBOutlet var profilesCollection: UICollectionView!
     
-    @IBOutlet var photosCollection: UICollectionView!
-    
-    @IBOutlet var heightConstraint: NSLayoutConstraint!
-    
-    @IBOutlet var followers: UILabel!
-    
-    @IBOutlet var posts: UILabel!
-    
-    @IBOutlet var following: UILabel!
-    
-    @IBOutlet var name: UILabel!
-    
-    @IBOutlet var place: UILabel!
-    
-    @IBOutlet var about: UILabel!
+    @IBOutlet var userDetailView: UserDetailView!
     
     // MARK:- Propeties
     
-    private var users = [UserDetails]()
+    private var users = [UserDetail]()
     
     
     // MARK:- View Lidecycle
@@ -40,21 +26,30 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let lori = UserDetails(name: "Lori Perez", posts: "135", followers: "869", following: "485", place: "France, Nantes", about: "Photographer, blogger, freelance journalist", profilePhoto: "ronaldo.jpg", photos: ["img_1.jpg", "img_2.jpg", "img_3.jpg", "img_4.jpg", "img_5.jpg"])
-        let siro = UserDetails(name: "Siroson", posts: "35", followers: "169", following: "285", place: "India, Chennai", about: "Software Developer", profilePhoto: "messi.jpg", photos: ["img_1.jpg", "img_2.jpg", "img_3.jpg", "img_4.jpg", "img_5.jpg"])
-        users.append(lori)
+        let ronaldo = UserDetail(name: "Chris Ronaldo", posts: "135", followers: "869", following: "485", place: "France, Nantes", about: "Photographer, blogger, freelance journalist", profilePhoto: "ronaldo.jpg", photos: ["img_1.jpg", "img_2.jpg", "img_3.jpg", "img_4.jpg", "img_5.jpg"])
+        let messi = UserDetail(name: "Lionel Messi", posts: "35", followers: "169", following: "285", place: "India, Chennai", about: "Software Developer", profilePhoto: "messi.jpg", photos: ["img_1.jpg", "img_2.jpg", "img_3.jpg", "img_4.jpg", "img_5.jpg"])
+        let beckham = UserDetail(name: "David Beckham", posts: "35", followers: "169", following: "285", place: "India, Chennai", about: "Software Developer", profilePhoto: "ronaldo.jpg", photos: ["img_1.jpg", "img_2.jpg", "img_3.jpg", "img_4.jpg", "img_5.jpg"])
+        let siro = UserDetail(name: "Siroson", posts: "35", followers: "169", following: "285", place: "India, Chennai", about: "Software Developer", profilePhoto: "messi.jpg", photos: ["img_1.jpg", "img_2.jpg", "img_3.jpg", "img_4.jpg", "img_5.jpg"])
+        let brit = UserDetail(name: "Brito", posts: "35", followers: "169", following: "285", place: "India, Chennai", about: "Software Developer", profilePhoto: "ronaldo.jpg", photos: ["img_1.jpg", "img_2.jpg", "img_3.jpg", "img_4.jpg", "img_5.jpg"])
+        users.append(ronaldo)
+        users.append(messi)
+        users.append(beckham)
         users.append(siro)
+        users.append(brit)
         
+        // Setup profiles collection view
         setupProfileCollectionView()
-        setupPhotoCollectionView()
-        setupUserDetails(index: 0)
+        
+        // Update userdetail view with first user's details
+        if !users.isEmpty {
+            userDetailView.update(detail: users.first!)
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 }
-
 
 // MARK:- Helper Methods
 
@@ -73,27 +68,6 @@ extension MainViewController {
             layout.minimumInteritemSpacing = 0
         }
     }
-    
-    func setupPhotoCollectionView() {
-        photosCollection.delegate = self
-        photosCollection.dataSource = self
-        
-        if let layout = photosCollection.collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.scrollDirection = .horizontal
-            layout.itemSize = CGSize(width: 125.0, height: 125.0)
-//            layout.minimumLineSpacing = 0
-//            layout.minimumInteritemSpacing = 0
-        }
-    }
-    
-    func setupUserDetails(index: Int) {
-        followers.text = users[index].followers
-        posts.text = users[index].posts
-        following.text = users[index].following
-        name.text = users[index].name
-        place.text = users[index].place
-        about.text = users[index].about
-    }
 }
 
 
@@ -105,41 +79,13 @@ extension MainViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == profilesCollection {
-            return users.count
-        }
-        
-        return 5
+        return users.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        if collectionView == profilesCollection {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileCollectionViewCell", for: indexPath) as! ProfileCollectionViewCell
-            cell.profileImage.image = UIImage(named: users[indexPath.row].profilePhoto)
-            
-//            if indexPath.row % 2 == 0 {
-//                cell.backgroundColor = UIColor.blue
-//            } else {
-//                cell.backgroundColor = UIColor.green
-//            }
-            
-            return cell
-        }
-        else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCollectionViewCell", for: indexPath) as! PhotoCollectionViewCell
-            return cell
-        }
-    }
-}
-
-extension MainViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if heightConstraint.constant == 130.0 {
-            heightConstraint.constant = 304.0
-        } else {
-            heightConstraint.constant = 130.0
-        }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileCollectionViewCell", for: indexPath) as! ProfileCollectionViewCell
+        cell.profileImage.image = UIImage(named: users[indexPath.row].profilePhoto)
+        return cell
     }
 }
 
@@ -148,7 +94,6 @@ extension MainViewController: UICollectionViewDelegate {
 extension MainViewController: UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let currentIndex = profilesCollection.contentOffset.x / profilesCollection.frame.size.width
-        print(currentIndex)
-        setupUserDetails(index: Int(currentIndex))
+        userDetailView.update(detail: users[Int(currentIndex)])
     }
 }

@@ -11,12 +11,14 @@
 		B64C0E022045DFD7000DC432 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B64C0E002045DFD7000DC432 /* Main.storyboard */; };
 		B64C0E042045DFD7000DC432 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B64C0E032045DFD7000DC432 /* Assets.xcassets */; };
 		B64C0E072045DFD7000DC432 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B64C0E052045DFD7000DC432 /* LaunchScreen.storyboard */; };
+		B69586902047C136009E6358 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B695868F2047C136009E6358 /* Extensions.swift */; };
 		B6C03A1F2046685300ACB247 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C03A1E2046685300ACB247 /* MainViewController.swift */; };
 		B6C03A2120466C0000ACB247 /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C03A2020466C0000ACB247 /* ProfileCollectionViewCell.swift */; };
 		B6C03A242046725900ACB247 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C03A232046725900ACB247 /* MainViewModel.swift */; };
 		B6C03A2A2046746500ACB247 /* ToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C03A292046746500ACB247 /* ToolBar.swift */; };
 		B6C03A2C2046863D00ACB247 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C03A2B2046863D00ACB247 /* PhotoCollectionViewCell.swift */; };
-		B6C03A2E2046961600ACB247 /* UserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C03A2D2046961600ACB247 /* UserDetails.swift */; };
+		B6C03A2E2046961600ACB247 /* UserDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C03A2D2046961600ACB247 /* UserDetail.swift */; };
+		B6C9A4432048138B006E6AE4 /* UserDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C9A4422048138B006E6AE4 /* UserDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,12 +28,14 @@
 		B64C0E032045DFD7000DC432 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B64C0E062045DFD7000DC432 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B64C0E082045DFD7000DC432 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B695868F2047C136009E6358 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		B6C03A1E2046685300ACB247 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B6C03A2020466C0000ACB247 /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
 		B6C03A232046725900ACB247 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		B6C03A292046746500ACB247 /* ToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBar.swift; sourceTree = "<group>"; };
 		B6C03A2B2046863D00ACB247 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
-		B6C03A2D2046961600ACB247 /* UserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetails.swift; sourceTree = "<group>"; };
+		B6C03A2D2046961600ACB247 /* UserDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetail.swift; sourceTree = "<group>"; };
+		B6C9A4422048138B006E6AE4 /* UserDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,11 +74,20 @@
 				B6C03A282046743700ACB247 /* Views */,
 				B6C03A2220466C0300ACB247 /* Cells */,
 				B6C03A2F2046961B00ACB247 /* Models */,
+				B69586912047C13C009E6358 /* Utilities */,
 				B6C03A1D2046683000ACB247 /* Storyboards */,
 				B64C0E032045DFD7000DC432 /* Assets.xcassets */,
 				B64C0E082045DFD7000DC432 /* Info.plist */,
 			);
 			path = SocialApp;
+			sourceTree = "<group>";
+		};
+		B69586912047C13C009E6358 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				B695868F2047C136009E6358 /* Extensions.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		B6C03A1B2046681900ACB247 /* App Delegate */ = {
@@ -123,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				B6C03A292046746500ACB247 /* ToolBar.swift */,
+				B6C9A4422048138B006E6AE4 /* UserDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -130,7 +144,7 @@
 		B6C03A2F2046961B00ACB247 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				B6C03A2D2046961600ACB247 /* UserDetails.swift */,
+				B6C03A2D2046961600ACB247 /* UserDetail.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -210,8 +224,10 @@
 				B6C03A1F2046685300ACB247 /* MainViewController.swift in Sources */,
 				B6C03A2120466C0000ACB247 /* ProfileCollectionViewCell.swift in Sources */,
 				B6C03A2A2046746500ACB247 /* ToolBar.swift in Sources */,
+				B69586902047C136009E6358 /* Extensions.swift in Sources */,
+				B6C9A4432048138B006E6AE4 /* UserDetailView.swift in Sources */,
 				B64C0DFD2045DFD7000DC432 /* AppDelegate.swift in Sources */,
-				B6C03A2E2046961600ACB247 /* UserDetails.swift in Sources */,
+				B6C03A2E2046961600ACB247 /* UserDetail.swift in Sources */,
 				B6C03A242046725900ACB247 /* MainViewModel.swift in Sources */,
 				B6C03A2C2046863D00ACB247 /* PhotoCollectionViewCell.swift in Sources */,
 			);
@@ -351,6 +367,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PN7Y8U3X4G;
 				INFOPLIST_FILE = SocialApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.indie.SocialApp;
@@ -365,6 +382,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PN7Y8U3X4G;
 				INFOPLIST_FILE = SocialApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.indie.SocialApp;

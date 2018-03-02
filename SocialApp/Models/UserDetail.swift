@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct UserDetails {
+struct UserDetail {
     
     // MARK:- Properties
     
